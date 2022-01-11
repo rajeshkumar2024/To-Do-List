@@ -34,9 +34,16 @@ expo start
 
 You will be able to debug and preview of the Application. Enjoy!!
 
+## Demo
 
+### Adding Task
+![Add Task Demo Video](https://github.com/rajeshkumar2024/To-Do-List/blob/main/app-preview/add.gif)
 
+### Edit Task
 
+![Edit Task Demo Video](https://github.com/rajeshkumar2024/To-Do-List/blob/main/app-preview/edit.gif)
 
+### Delete Task 
+![Delete Task Demo Video](https://github.com/rajeshkumar2024/To-Do-List/blob/main/app-preview/delete.gif)
 
 
