@@ -10,7 +10,7 @@ git clone https://github.com/rajeshkumar2024/To-Do-List.git
 
 ## Assuming that you have Node 12 LTS or greater installed, you can use npm to install the Expo CLI command line utility:
 
-*Note : If you have not installed Note 12 LTS then you can install it from [here](https://nodejs.org/en/)*
+*Note : If you have not installed Node 12 LTS then you can install it from [here](https://nodejs.org/en/)*
 
 
 ```
