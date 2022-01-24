@@ -10,6 +10,9 @@ git clone https://github.com/rajeshkumar2024/To-Do-List.git
 
 ## Assuming that you have Node 12 LTS or greater installed, you can use npm to install the Expo CLI command line utility:
 
+*Note : If you have not installed Note 12 LTS then you can install it from [here](https://nodejs.org/en/)*
+
+
 ```
 npm install -g expo-cli
 ```
@@ -36,7 +39,7 @@ You will be able to debug and preview of the Application. Enjoy!!
 
 ## Demo
 
-### Adding Task
+### Adding New Task
 ![Add Task Demo Video](https://github.com/rajeshkumar2024/To-Do-List/blob/main/app-preview/add.gif)
 
 ### Edit Task
@@ -45,5 +48,8 @@ You will be able to debug and preview of the Application. Enjoy!!
 
 ### Delete Task 
 ![Delete Task Demo Video](https://github.com/rajeshkumar2024/To-Do-List/blob/main/app-preview/delete.gif)
+
+## Apk Download Link 
+[Apk Link](https://drive.google.com/uc?id=1d0CLLE6UGtoz4CnEm_74U-87A8zStg7Q&export=download)
 
 

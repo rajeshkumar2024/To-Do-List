@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Keyboard, StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import SingleTodo from './components/SingleTodo';
 import AsyncStorage  from '@react-native-async-storage/async-storage';
@@ -11,10 +11,17 @@ export default function App() {
   const [todos, setTodos] = useState([])
 
   const handleTodo = () => {
+
     if (!todo) return;
 
-    setTodos([...todos, { id: Date.now(), text: todo }]);
+    setTodos([{ id: Date.now(), text: todo },...todos]);
     setTodo('');
+    Keyboard.dismiss();
+    showToast();
+  };
+
+  const showToast = () =>{
+      ToastAndroid.show("Task Added Successfully",ToastAndroid.SHORT);
   };
 
   const fetchTodos = async  () => {
@@ -23,23 +30,18 @@ export default function App() {
   
       if (data !== null) {
         setTodos(JSON.parse(data));
-        console.log(JSON.parse(data));
       }
     }
     catch (err){
       alert("Error Fetching Data");
       console.log(err);
     }
-    
-     
-
   };
 
   useEffect(() => {
     fetchTodos();
   }, []);  
 
-  console.log(todos);
 
   return (
     <View style={styles.body}>
@@ -47,24 +49,24 @@ export default function App() {
       <View style={styles.container}>
         <Text style={styles.heading}>Task List</Text>
         <View style={styles.inputContainer}>
+          
           <TextInput onChangeText={(text) => setTodo(text)}
             value={todo}
             placeholder='Add task'
-            style={styles.input} />
-          <TouchableOpacity onPress={handleTodo}>
-            <Text style={styles.button}>Add</Text>
+            style={styles.input} onSubmitEditing={handleTodo}/>
+          <TouchableOpacity onPress={handleTodo} >
+            <Text style={styles.button} >Add</Text>
           </TouchableOpacity>
         </View>
         </View>
 
-        <View style={{ marginTop: 40, marginBottom : 160, }}>
+        <View style={{ marginTop: 20, marginBottom : 160, }}>
           <FlatList
             data={todos}
             renderItem={({ item }) => <SingleTodo
               todo={item}
               todos={todos}
               setTodos={setTodos}
-
             />}
             keyExtractor={(item) => item.id.toString()}
           />
@@ -72,7 +74,7 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
 
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
   button: {
     padding: 15,
     backgroundColor: '#E8DAEF',
-    borderRadius: 50,
+    borderRadius: 10,
     elevation: 5,
   }
 });

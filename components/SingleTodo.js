@@ -9,7 +9,6 @@ export default function SingleTodo({todo,setTodos,todos}) {
     const [editText, setEditText] = useState(todo.text)
     
     useEffect(() => {
-        
         AsyncStorage.setItem('todos',JSON.stringify(todos));
     }, [todos]);
 
@@ -38,8 +37,9 @@ export default function SingleTodo({todo,setTodos,todos}) {
 
     return (
         <View style={styles.todo}>
-            {!edit ? <Text style={styles.todoText}>{todo.text}</Text> : <TextInput style={styles.todoinput} value={edit.text} 
-            onChangeText={(text)=>setEditText(text)}/>}
+            {!edit ? (<Text style={styles.todoText}>{todo.text}</Text>) : (
+                    <TextInput style={styles.todoinput} value={editText} 
+                    onChangeText={(text)=>setEditText(text)} onSubmitEditing={textEdit}/> )}
             <TouchableOpacity>
                 <MaterialIcons
                 style={styles.todoaction}
@@ -47,7 +47,7 @@ export default function SingleTodo({todo,setTodos,todos}) {
                 size={22}
                 color='black'
                 onPress={textEdit} 
-                onSubmitEditing = {textEdit}
+                onSubmitEditing = {textEdit}  
                 /> 
             </TouchableOpacity>
             <TouchableOpacity>
@@ -61,8 +61,6 @@ export default function SingleTodo({todo,setTodos,todos}) {
             </TouchableOpacity>
 
         </View>
-
-        
     )
 }
 
@@ -93,7 +91,7 @@ const styles=StyleSheet.create({
     todoinput: {
         flex: 1, 
         fontSize: 16,
-        borderRadius:10,
+        borderRadius:7,
         elevation: 1.5,
         borderColor: 'black',
         paddingVertical:5,
